@@ -5,10 +5,10 @@ Now available for Vue.js.
 
 ## Usage
 
-Install SweetModal for Vue.js through nom:
+Install SweetModal for Vue.js through npm:
 
 ```
-    npm install sweet-modal-vue
+npm install sweet-modal-vue
 ```
 
 ## Examples
