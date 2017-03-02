@@ -498,8 +498,8 @@
 </script>
 
 <style lang="scss">
-	@import 'docs/styles/colors';
-	@import 'docs/styles/mixins';
+	@import '../styles/colors';
+	@import '../styles/mixins';
 
 	nav.project-navigation {
 		background: darken(color(header), 4%);

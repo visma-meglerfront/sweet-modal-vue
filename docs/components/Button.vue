@@ -25,8 +25,8 @@
 </script>
 
 <style lang="scss">
-	@import 'src/styles/mixins';
-	@import 'src/styles/colors';
+	@import '../styles/mixins';
+	@import '../styles/colors';
 
 	.sweet-button {
 		@include border-box;

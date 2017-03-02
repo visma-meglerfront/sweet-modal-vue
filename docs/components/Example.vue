@@ -76,8 +76,8 @@
 </script>
 
 <style lang="scss">
-	@import 'docs/styles/colors';
-	@import 'docs/styles/mixins';
+	@import '../styles/colors';
+	@import '../styles/mixins';
 
 	.example {
 		border: 1px solid color(border);

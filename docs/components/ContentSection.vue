@@ -21,8 +21,8 @@
 </script>
 
 <style lang="scss">
-	@import 'docs/styles/mixins';
-	@import 'docs/styles/colors';
+	@import '../styles/mixins';
+	@import '../styles/colors';
 
 	.content-section {
 		padding: {
