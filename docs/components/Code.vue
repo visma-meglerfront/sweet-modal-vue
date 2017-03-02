@@ -29,6 +29,7 @@
 
 	.sweet-code {
 		tab-size: 4;
+		-webkit-font-smoothing: auto;
 
 		&.inline {
 			display: inline-block;
