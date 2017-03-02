@@ -200,7 +200,7 @@
 						'has-content': this.has_content,
 						'has-icon': this.icon,
 						'is-visible': this.visible,
-						'sweet-alert': this.icon && !this.has_tabs,
+						'sweet-alert': (this.icon && !this.has_tabs) || (!this.icon && !this.title && !this.$slots.title),
 						bounce: this.is_bouncing,
 					}
 				]
