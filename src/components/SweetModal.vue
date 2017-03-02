@@ -348,10 +348,10 @@
 </script>
 
 <style lang="scss">
-	@import 'src/styles/mixins';
-	@import 'src/styles/colors';
-	@import 'src/styles/animations';
-	@import 'src/styles/icons';
+	@import '../styles/mixins';
+	@import '../styles/colors';
+	@import '../styles/animations';
+	@import '../styles/icons';
 
 	.sweet-modal-overlay {
 		position: fixed;
