@@ -1,0 +1,215 @@
+@import './colors';
+@import './mixins';
+
+.sweet-modal-icon {
+	position: relative;
+
+	width: 80px;
+	height: 80px;
+
+	border: 4px solid gray;
+	border-radius: 50%;
+
+	margin: auto;
+	padding: 0;
+
+	box-sizing: content-box;
+
+	&.sweet-modal-error {
+		border-color: color(red);
+
+		.sweet-modal-x-mark {
+			position: relative;
+			display: block;
+		}
+
+		.sweet-modal-line {
+			display: block;
+			position: absolute;
+			top: 37px;
+			height: 5px;
+			width: 47px;
+
+			background-color: color(red);
+			border-radius: 2px;
+
+			&.sweet-modal-left {
+				transform: rotate(45deg);
+				left: 17px;
+			}
+
+			&.sweet-modal-right {
+				transform: rotate(-45deg);
+				right: 16px;
+			}
+		}
+	}
+
+	&.sweet-modal-warning {
+		border-color: color(orange);
+
+		.sweet-modal-body { // Exclamation mark body
+			position: absolute;
+			width: 5px;
+			height: 47px;
+			left: 50%;
+			top: 10px;
+
+			margin-left: -2px;
+
+			border-radius: 2px;
+			background-color: color(orange);
+		}
+		.sweet-modal-dot { // Exclamation mark dot
+			position: absolute;
+			left: 50%;
+			bottom: 10px;
+			width: 7px;
+			height: 7px;
+
+			margin-left: -3px;
+
+			border-radius: 50%;
+			background-color: color(orange);
+		}
+	}
+
+	&.sweet-modal-info {
+		border-color: color(blue);
+
+		&::before { // i-letter body
+			content: '';
+			position: absolute;
+			width: 5px;
+			height: 29px;
+			left: 50%;
+			bottom: 17px;
+
+			margin-left: -2px;
+
+			border-radius: 2px;
+			background-color: color(blue);
+		}
+
+		&::after { // i-letter dot
+			content: '';
+			position: absolute;
+			width: 7px;
+			height: 7px;
+			top: 19px;
+
+			margin-left: -3px;
+
+			border-radius: 50%;
+			background-color: color(blue);
+		}
+	}
+
+	&.sweet-modal-success {
+		border-color: color(green);
+
+		&::before, &::after { // Emulate moving circular line
+			content: '';
+			position: absolute;
+
+			border-radius: 40px;
+
+			width: 60px;
+			height: 120px;
+
+			background: white;
+
+			transform: rotate(45deg);
+		}
+
+		&::before {
+			border-radius: 120px 0 0 120px;
+
+			top: -7px;
+			left: -33px;
+
+			transform: rotate(-45deg);
+
+			-webkit-transform-origin: 60px 60px;
+			transform-origin: 60px 60px;
+		}
+
+		&::after {
+			border-radius: 0 120px 120px 0;
+
+			top: -11px;
+			left: 30px;
+
+			transform: rotate(-45deg);
+
+			-webkit-transform-origin: 0px 60px;
+			transform-origin: 0px 60px;
+		}
+
+		.sweet-modal-placeholder { // Ring
+			box-sizing: content-box;
+			position: absolute;
+			left: -4px;
+			top: -4px;
+			z-index: 2;
+
+			width: 80px;
+			height: 80px;
+
+			border: 4px solid rgba(color(green), 0.2);
+			border-radius: 50%;
+		}
+
+		.sweet-modal-fix { // Hide corners left from animation
+			position: absolute;
+			left: 28px;
+			top: 8px;
+			z-index: 1;
+
+			width: 7px;
+			height: 90px;
+			background-color: white;
+
+			transform: rotate(-45deg);
+		}
+
+		.sweet-modal-line {
+			display: block;
+			position: absolute;
+			z-index: 2;
+
+			height: 5px;
+			background-color: color(green);
+			border-radius: 2px;
+
+			&.sweet-modal-tip {
+				width: 25px;
+
+				left: 14px;
+				top: 46px;
+
+				transform: rotate(45deg);
+			}
+
+			&.sweet-modal-long {
+				width: 47px;
+
+				right: 8px;
+				top: 38px;
+
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	&.sweet-modal-custom {
+		border-radius: 0;
+		border: none;
+
+		background: {
+			size: contain;
+			position: center center;
+			repeat: no-repeat;
+		}
+	}
+}

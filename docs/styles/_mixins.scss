@@ -1,0 +1,38 @@
+@mixin mp0 {
+	margin: 0;
+	padding: 0;
+}
+
+@mixin ulreset {
+	@include mp0;
+	list-style-type: none;
+}
+
+@mixin border-box {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin media($type) {
+	@if $type == mobile or $type == phone or $type == tablet {
+		@media screen and (max-width: 600px) {
+			@content;
+		}
+	} @else {
+		@media screen and (min-width: 601px) {
+			@content;
+		}
+	}
+}
+
+@mixin max-width {
+	max-width: 1000px;
+	margin: auto;
+}
+
+@mixin unselectable {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	cursor: default;
+}

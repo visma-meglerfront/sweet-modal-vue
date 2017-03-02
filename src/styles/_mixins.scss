@@ -1,0 +1,77 @@
+@mixin mp0 {
+	margin: 0;
+	padding: 0;
+}
+
+@mixin ulreset {
+	@include mp0;
+	list-style-type: none;
+}
+
+@mixin border-box {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin vertical-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	@include transform(translateX(-50%) translateY(-50%));
+}
+
+@mixin unselectable {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+@mixin ellipsis {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+@mixin unclickable {
+	@include unselectable;
+	pointer-events: none;
+}
+
+@mixin svg {
+	svg,
+	svg path,
+	svg polygon,
+	svg rect,
+	svg circle {
+		@content;
+	}
+}
+
+@mixin svg-path($include-parent: false) {
+	path,
+	polygon,
+	rect,
+	circle {
+		@content;
+	}
+
+	@if $include-parent {
+		& {
+			@content;
+		}
+	}
+}
+
+@mixin media($type) {
+	@if $type == mobile or $type == phone or $type == tablet {
+		@media screen and (max-width: 600px) {
+			@content;
+		}
+	} @else {
+		@media screen and (min-width: 601px) {
+			@content;
+		}
+	}
+}

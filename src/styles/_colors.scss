@@ -1,0 +1,52 @@
+$colors: (
+	blue: #039BE5,
+	red: #F44336,
+	red-2: #E53935,
+	red-3: #D32F2F,
+	dark-red: #C62828,
+	pink: #E91E63,
+	indigo: #3F51B5,
+	purple: #9C27B0,
+	purple-2: #8E24AA,
+	purple-3: #7B1FA2,
+	deep-purple: #673AB7,
+	deep-purple-2: #5E35B1,
+	deep-purple-3: #512DA8,
+	cyan: #00BCD4,
+	teal: #009688,
+	green: #4CAF50,
+	green-2: #43A047,
+	green-3: #388E3C,
+	light-green: #8BC34A,
+	light-green-2: #7CB342,
+	light-green-3: #689F38,
+	lime: #CDDC39,
+	yellow: #FFEB3B,
+	amber: #FFC107,
+	orange: #FF9800,
+	deep-orange: #FF5722,
+	brown: #795548,
+	grey: #9E9E9E,
+	dark-grey: #5a5a5a,
+	light-grey: #999,
+	blue-grey: #607D8B,
+	black: #000,
+	white: #fff,
+	dark: #222C38,
+	dark-overlay: #182028,
+	dark-modal: #182028,
+	border: #eaeaea
+);
+
+@function color($name) {
+	@if map-has-key(getColors(), $name) {
+		@return map-get(getColors(), $name);
+	} @else {
+		@warn "Color not found: #{$name}";
+		@return #000;
+	}
+}
+
+@function getColors() {
+	@return $colors;
+}

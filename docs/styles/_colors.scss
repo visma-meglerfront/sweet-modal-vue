@@ -1,0 +1,22 @@
+$colors: (
+	accent: #FC0061,
+	pink: #FC0061,
+	light-grey: #999AA0,
+	code: #141821,
+	header: #141822,
+	border: #F2F2F2,
+	light-background: #F6F7FB
+);
+
+@function color($name) {
+	@if map-has-key(getColors(), $name) {
+		@return map-get(getColors(), $name);
+	} @else {
+		@warn "Color not found: #{$name}";
+		@return #000;
+	}
+}
+
+@function getColors() {
+	@return $colors;
+}
