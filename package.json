@@ -16,6 +16,7 @@
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.1",
     "svg-inline-loader": "^0.7.1",
+    "vue": "^2.1.10",
     "vue-loader": "^9.9.5",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.2",
@@ -24,8 +25,10 @@
   },
   "dependencies": {
     "unindent": "^2.0.0",
-    "vue": "^2.1.10",
     "vue-highlightjs": "^1.1.0"
+  },
+  "peerDependencies": {
+    "vue": "2.x"
   },
   "scripts": {
     "dev": "webpack-dev-server --config docs/webpack.config.js --inline --hot",
