@@ -1,6 +1,6 @@
 {
   "name": "sweet-modal-vue",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "SweetModal library for use with Vue.js",
   "devDependencies": {
     "babel-core": "^6.0.0",
