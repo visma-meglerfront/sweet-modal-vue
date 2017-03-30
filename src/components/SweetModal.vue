@@ -8,7 +8,7 @@
 
 		See LICENSE-MIT.txt and LICENSE-GPL.txt
 	-->
-	<div :class="overlay_classes" v-show="is_open" v-on:click.prevent="_onOverlayClick">
+	<div :class="overlay_classes" v-show="is_open" v-on:click="_onOverlayClick">
 		<div :class="modal_classes">
 			<div class="sweet-box-actions">
 				<!-- Custom Actions -->
