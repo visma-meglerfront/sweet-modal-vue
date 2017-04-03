@@ -26,7 +26,7 @@
 				<template v-if="has_tabs && !has_title">
 					<ul class="sweet-modal-tabs">
 						<li v-for="tab in tabs" :class="_getClassesForTab(tab)">
-							<a href="#" v-on:click="_changeTab(tab)">
+							<a href="#" v-on:click.prevent="_changeTab(tab)">
 								<div class="valign">
 									<span v-if="tab.icon" v-html="tab.icon" class="icon" />
 									<span class="title">{{ tab.title }}</span>
