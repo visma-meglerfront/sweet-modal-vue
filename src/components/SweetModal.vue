@@ -28,8 +28,8 @@
 						<li v-for="tab in tabs" :class="_getClassesForTab(tab)">
 							<a href="#" v-on:click.prevent="_changeTab(tab)">
 								<div class="valign">
-									<span v-if="tab.icon" v-html="tab.icon" class="icon" />
-									<span class="title">{{ tab.title }}</span>
+									<span v-if="tab.icon" v-html="tab.icon" class="sweet-modal-tab-icon" />
+									<span class="sweet-modal-tab-title">{{ tab.title }}</span>
 								</div>
 							</a>
 						</li>
@@ -47,9 +47,9 @@
 			<ul class="sweet-modal-tabs" v-if="has_title && has_tabs">
 				<li v-for="tab in tabs" :class="_getClassesForTab(tab)">
 					<a href="#" v-on:click="_changeTab(tab)">
-						<div class="valign">
-							<span v-if="tab.icon" v-html="tab.icon" class="icon" />
-							<span class="title">{{ tab.title }}</span>
+						<div class="sweet-modal-valign">
+							<span v-if="tab.icon" v-html="tab.icon" class="sweet-modal-icon" />
+							<span class="sweet-modal-title">{{ tab.title }}</span>
 						</div>
 					</a>
 				</li>
@@ -271,6 +271,8 @@
 
 			_getClassesForTab(tab) {
 				return [
+					'sweet-modal-tab',
+
 					{
 						active: tab.active,
 						disabled: tab.disabled
@@ -363,7 +365,7 @@
 
 		overflow-y: auto;
 		z-index: 9001;
-		
+
 		font-size: 14px;
 
 		-webkit-font-smoothing: antialiased;
@@ -456,7 +458,7 @@
 				right: 64px;
 			}
 
-			h2 {
+			> h2 {
 				@include mp0;
 				@include ellipsis;
 
@@ -475,7 +477,7 @@
 
 			margin-left: -32px;
 
-			li {
+			li.sweet-modal-tab {
 				display: block;
 				height: 100%;
 
@@ -498,11 +500,11 @@
 
 					height: 100%;
 
-					span.title {
+					span.sweet-modal-tab-title {
 						display: block;
 					}
 
-					span.icon {
+					span.sweet-modal-tab-icon {
 						display: block;
 						line-height: 1.0;
 
@@ -516,7 +518,7 @@
 						}
 					}
 
-					span.icon + span.title {
+					span.sweet-modal-tab-icon + span.sweet-modal-tab-title {
 						line-height: 1.0;
 						margin-top: 8px;
 					}
@@ -555,10 +557,10 @@
 				margin: 0;
 				border-bottom: 1px solid color(border);
 
-				li a {
+				li.sweet-modal-tab a {
 					margin-top: -4px;
 
-					span.icon {
+					span.sweet-modal-tab-icon {
 						display: inline-block;
 
 						svg, img {
@@ -571,7 +573,7 @@
 						}
 					}
 
-					span.title {
+					span.sweet-modal-tab-title {
 						display: inline-block;
 					}
 				}
