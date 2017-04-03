@@ -472,10 +472,11 @@
 
 			display: flex;
 			align-items: center;
-			width: calc(100% - 42px);
+			width: calc(100% + 32px);
 			height: 100%;
 
 			margin-left: -32px;
+			overflow-x: auto;
 
 			li.sweet-modal-tab {
 				display: block;
@@ -486,8 +487,6 @@
 
 					display: flex;
 					align-items: center;
-
-					max-width: 128px;
 
 					padding: {
 						left: 20px;
