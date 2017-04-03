@@ -363,8 +363,7 @@
 
 		overflow-y: auto;
 		z-index: 9001;
-
-		font-family: /*-apple-system, BlinkMacSystemFont, */Roboto;
+		
 		font-size: 14px;
 
 		-webkit-font-smoothing: antialiased;
