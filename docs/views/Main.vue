@@ -143,6 +143,18 @@
 					<sweet-button slot="button">Action 1</sweet-button>
 				</sweet-modal>
 			</example>
+
+			<example action-title="Nested" v-on:action="openExample('nested')" :code="examples.nested" language="xml">
+				<sweet-modal ref="nested">
+					This is the parent modal.
+
+					<sweet-button slot="button" v-on:click="$refs.nestedChild.open()">Open Child Modal</sweet-button>
+				</sweet-modal>
+
+				<sweet-modal ref="nestedChild">
+					This is the child modal.
+				</sweet-modal>
+			</example>
 		</content-section>
 
 		<content-section title="Install" class="install">
@@ -473,6 +485,16 @@
 						<sweet-button slot="button" color="light-grey">Action 2</sweet-button>
 						<sweet-button slot="button">Action 1</sweet-button>
 					</sweet-modal>`,
+
+					nested: `<sweet-modal>
+						This is the parent modal.
+
+						<sweet-button slot="button" v-on:click="$refs.nestedChild.open()">Open Child Modal</sweet-button>
+					</sweet-modal>
+
+					<sweet-modal ref="nestedChild">
+						This is the child modal.
+					</sweet-modal>`
 				}
 			}
 		},
@@ -625,7 +647,7 @@
 
 		&.install {
 			background: color(light-background);
-			
+
 			padding: {
 				top: 64px;
 				bottom: 64px;
