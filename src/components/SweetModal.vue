@@ -27,7 +27,7 @@
 					<ul class="sweet-modal-tabs">
 						<li v-for="tab in tabs" :class="_getClassesForTab(tab)">
 							<a href="#" v-on:click.prevent="_changeTab(tab)">
-								<div class="valign">
+								<div class="sweet-modal-valign">
 									<span v-if="tab.icon" v-html="tab.icon" class="sweet-modal-tab-icon" />
 									<span class="sweet-modal-tab-title">{{ tab.title }}</span>
 								</div>
@@ -46,10 +46,10 @@
 			<!-- Tabs: If title AND tabs are present -->
 			<ul class="sweet-modal-tabs" v-if="has_title && has_tabs">
 				<li v-for="tab in tabs" :class="_getClassesForTab(tab)">
-					<a href="#" v-on:click="_changeTab(tab)">
+					<a href="#" v-on:click.prevent="_changeTab(tab)">
 						<div class="sweet-modal-valign">
-							<span v-if="tab.icon" v-html="tab.icon" class="sweet-modal-icon" />
-							<span class="sweet-modal-title">{{ tab.title }}</span>
+							<span v-if="tab.icon" v-html="tab.icon" class="sweet-modal-tab-icon" />
+							<span class="sweet-modal-tab-title">{{ tab.title }}</span>
 						</div>
 					</a>
 				</li>
