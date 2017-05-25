@@ -8,7 +8,7 @@ Now available for Vue.js.
 Install SweetModal for Vue.js through npm:
 
 ```
-npm install sweet-modal-vue
+npm install sweet-modal-vue2
 ```
 
 ## Examples
