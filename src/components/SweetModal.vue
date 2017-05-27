@@ -125,6 +125,12 @@
 				default: false
 			},
 
+			pulseOnBlock: {
+				type: Boolean,
+				required: false,
+				default: true
+			},
+
 			icon: {
 				type: String,
 				required: false,
@@ -247,7 +253,7 @@
 			_onOverlayClick(event) {
 				if (!event.target.classList || event.target.classList.contains('sweet-modal-clickable')) {
 					if (this.blocking) {
-						this.bounce()
+						if (this.pulseOnBlock) this.bounce()
 					} else {
 						this.close()
 					}
@@ -257,7 +263,7 @@
 			_onDocumentKeyup(event) {
 				if (event.keyCode == 27) {
 					if (this.blocking) {
-						this.bounce()
+						if (this.pulseOnBlock) this.bounce()
 					} else {
 						this.close()
 					}

@@ -224,6 +224,13 @@
 				</tr>
 
 				<tr>
+					<td>pulse-on-block</td>
+					<td>Boolean</td>
+					<td>true</td>
+					<td>If false, disabled pulse effect when user clicks outside a blocking modal.</td>
+				</tr>
+
+				<tr>
 					<td>icon</td>
 					<td>String</td>
 					<td>null</td>
