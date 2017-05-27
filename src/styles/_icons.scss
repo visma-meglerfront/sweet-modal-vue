@@ -213,3 +213,14 @@
 		}
 	}
 }
+
+.sweet-modal.theme-dark .sweet-modal-icon {
+
+	&.sweet-modal-success {
+
+		&::before, &::after,
+		.sweet-modal-fix {
+			background-color: color(dark-overlay);
+		}
+	}
+}
