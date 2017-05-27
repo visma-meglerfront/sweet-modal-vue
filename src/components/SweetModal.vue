@@ -459,8 +459,9 @@
 			}
 
 			> h2 {
-				@include mp0;
 				@include ellipsis;
+
+				padding: 0;
 
 				font-weight: 500;
 				font-size: 22px;
