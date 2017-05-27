@@ -36,6 +36,7 @@
     "build-src": "webpack --config src/webpack.config.js --progress --hide-modules",
     "build-docs": "webpack --config docs/webpack.config.js --progress --hide-modules"
   },
+  "browser": "./dist/sweet-modal.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adeptoas/sweet-modal-vue.git"
