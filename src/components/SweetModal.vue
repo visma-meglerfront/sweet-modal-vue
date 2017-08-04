@@ -218,7 +218,22 @@
 			 * Open the dialog
 			 * Emits an event 'open'
 			 */
-			open() {
+			open(tabId = null) {
+				if (tabId && this.has_tabs) {
+					// Find tab with wanted id.
+					let openingTabs = this.tabs.filter((tab) => {return tab.id === tabId})
+					if (openingTabs.length > 0) {
+						// Set current tab to first match.
+						this.currentTab = this._changeTab(openingTabs[0])
+					} else {
+						// Try opening index instead of id as an alternative.
+						let openingTab = this.tabs[tabId]
+						if (openingTab) {
+							this.currentTab = this._changeTab(openingTab)
+						}
+					}
+				}
+
 				this.is_open = true
 				this._animateIcon()
 
