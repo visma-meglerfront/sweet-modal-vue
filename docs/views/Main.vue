@@ -195,7 +195,9 @@
 				</li>
 
 				<li>
-					Open your modal by calling <sweet-code inline light><code language="javascript">this.$refs.modal.open()</code></sweet-code>.
+					Open your modal by calling <sweet-code inline light><code language="javascript">this.$refs.modal.open()</code></sweet-code>.<br />
+					If your modal has tabs and you want to open a specific tab, supply the tab's ID as the first argument:
+					<sweet-code inline light><code language="javascript">this.$refs.modal.open('tab1')</code></sweet-code>
 				</li>
 			</ol>
 		</content-section>
