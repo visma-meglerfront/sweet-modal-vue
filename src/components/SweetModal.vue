@@ -217,6 +217,8 @@
 			/**
 			 * Open the dialog
 			 * Emits an event 'open'
+			 *
+			 * @param tabId string     Optional id or index of initial tab element.
 			 */
 			open(tabId = null) {
 				if (tabId && this.has_tabs) {
