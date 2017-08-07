@@ -163,7 +163,14 @@
 				visible: false,
 				is_open: false,
 				is_bouncing: false,
-				tabs: []
+				tabs: [],
+
+				backups: {
+					body: {
+						height: null,
+						overflow: null
+					}
+				}
 			}
 		},
 
@@ -237,6 +244,7 @@
 				}
 
 				this.is_open = true
+				this._lockBody()
 				this._animateIcon()
 
 				setTimeout(() => this.visible = true, 30)
@@ -249,6 +257,7 @@
 			 */
 			close() {
 				this.visible = false
+				this._unlockBody()
 
 				setTimeout(() => this.is_open = false, 300)
 				this.$emit('close')
@@ -266,6 +275,19 @@
 			/**********************
 			    INTERNAL METHODS
 			 **********************/
+
+			_lockBody() {
+				this.backups.body.height = document.body.style.height
+				this.backups.body.overflow = document.body.style.overflow
+
+				document.body.style.height = '100%'
+				document.body.style.overflow = 'hidden'
+			},
+
+			_unlockBody() {
+				document.body.style.height = this.backups.body.height
+				document.body.style.overflow = this.backups.body.overflow
+			},
 
 			_onOverlayClick(event) {
 				if (!event.target.classList || event.target.classList.contains('sweet-modal-clickable')) {
