@@ -386,7 +386,6 @@
 		width: 100vw;
 		height: 100vh;
 
-		overflow-y: auto;
 		z-index: 9001;
 
 		font-size: 14px;
@@ -428,6 +427,8 @@
 
 		width: 80%;
 		max-width: 640px;
+		max-height: 100vh;
+		overflow-y: auto;
 
 		border-radius: 2px;
 
