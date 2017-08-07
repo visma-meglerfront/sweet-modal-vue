@@ -1,7 +1,7 @@
-var SweetModal = require('./components/SweetModal.vue')
-var SweetModalTab = require('./components/SweetModalTab.vue')
+import SweetModal from './components/SweetModal'
+import SweetModalTab from './components/SweetModalTab'
 
-module.exports = {
-	SweetModal: SweetModal,
-	SweetModalTab: SweetModalTab
+export {
+	SweetModal,
+	SweetModalTab
 }
