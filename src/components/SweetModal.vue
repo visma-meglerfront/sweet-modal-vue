@@ -213,7 +213,7 @@
 						'has-content': this.has_content,
 						'has-icon': this.icon,
 						'is-visible': this.visible,
-						'sweet-alert': (this.icon && !this.has_tabs) || (!this.icon && !this.title && !this.$slots.title),
+						'is-alert': (this.icon && !this.has_tabs) || (!this.icon && !this.title && !this.$slots.title),
 						bounce: this.is_bouncing,
 					}
 				]
@@ -668,7 +668,7 @@
 		}
 
 		// Special Styles
-		&.sweet-alert {
+		&.is-alert {
 
 			.sweet-content {
 				display: block;
