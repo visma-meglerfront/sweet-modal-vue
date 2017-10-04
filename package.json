@@ -24,6 +24,8 @@
     "webpack-merge": "^2.6.1"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "unindent": "^2.0.0",
     "vue-highlightjs": "^1.1.0"
   },
@@ -47,7 +49,7 @@
     "vue",
     "library"
   ],
-  "main": "src/main.js",
+  "main": "dist/build.js",
   "author": "Adepto.as AS",
   "license": "ISC",
   "bugs": {
