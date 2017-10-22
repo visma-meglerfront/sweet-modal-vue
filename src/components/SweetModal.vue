@@ -508,7 +508,7 @@
 				@include ellipsis;
 
 				padding: 0;
-
+                                line-height: inherit;
 				font-weight: 500;
 				font-size: 22px;
 			}
