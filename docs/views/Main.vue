@@ -263,7 +263,10 @@
 					<td>pulse-on-block</td>
 					<td>Boolean</td>
 					<td>true</td>
-					<td>If false, disabled pulse effect when user clicks outside a blocking modal.</td>
+					<td>
+						<span class="version">v1.1+</span>
+						If false, disabled pulse effect when user clicks outside a blocking modal.
+					</td>
 				</tr>
 
 				<tr>
@@ -284,6 +287,7 @@
 					<td>String, Number</td>
 					<td>null</td>
 					<td>
+						<span class="version">v2.0+</span>
 						Set the width of the modal. By default this is a "clever" width depending on
 						browser width.<br />
 						Numbers are interpreted as pixels, string are interpreted as-is.
