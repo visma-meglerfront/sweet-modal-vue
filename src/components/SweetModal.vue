@@ -143,6 +143,12 @@
 				default: false
 			},
 
+			enableMobileFullscreen: {
+				type: Boolean,
+				required: false,
+				default: true
+			},
+
 			width: {
 				type: [Number, String],
 				required: false,
@@ -218,6 +224,7 @@
 						'has-tabs': this.has_tabs,
 						'has-content': this.has_content,
 						'has-icon': this.icon,
+						'is-mobile-fullscreen': this.enableMobileFullscreen,
 						'is-visible': this.visible,
 						'is-alert': (this.icon && !this.has_tabs) || (!this.icon && !this.title && !this.$slots.title),
 						bounce: this.is_bouncing,
@@ -843,30 +850,33 @@
 			}
 		}
 
-		@include media(mobile) {
+		&.is-mobile-fullscreen {
+			
+			@include media(mobile) {
 
-			& {
-				width: 100%;
-				height: 100vh;
+				& {
+					width: 100%;
+					height: 100vh;
 
-				left: 0;
-				top: 0;
+					left: 0;
+					top: 0;
 
-				transform: scale(0.9);
+					transform: scale(0.9);
 
-				&.is-visible {
-					transform: none;
+					&.is-visible {
+						transform: none;
+					}
 				}
-			}
 
-			.sweet-buttons {
-				@include border-box;
+				.sweet-buttons {
+					@include border-box;
 
-				position: absolute;
-				bottom: 0;
-				left: 0;
+					position: absolute;
+					bottom: 0;
+					left: 0;
 
-				width: 100%;
+					width: 100%;
+				}
 			}
 		}
 	}

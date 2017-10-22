@@ -283,6 +283,13 @@
 				</tr>
 
 				<tr>
+					<td>hide-close-button</td>
+					<td>Boolean</td>
+					<td>false</td>
+					<td>If true, close button is hidden.</td>
+				</tr>
+
+				<tr>
 					<td>width</td>
 					<td>String, Number</td>
 					<td>null</td>
@@ -295,10 +302,13 @@
 				</tr>
 
 				<tr>
-					<td>hide-close-button</td>
+					<td>enable-mobile-fullscreen</td>
 					<td>Boolean</td>
-					<td>false</td>
-					<td>If true, close button is hidden.</td>
+					<td>true</td>
+					<td>
+						<span class="version">v2.0+</span>
+						If true, modal becomes fullscreen on mobile devices for better legibility.
+					</td>
 				</tr>
 
 				<tr>
