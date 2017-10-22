@@ -104,6 +104,12 @@
 				</sweet-modal>
 			</example>
 
+			<example action-title="Ultra Wide" v-on:action="openExample('ultraWide')" :code="examples.ultraWide" language="xml">
+				<sweet-modal ref="ultraWide" title="Ultra Wide" width="100%">
+					This is a very wide modal.
+				</sweet-modal>
+			</example>
+
 			<h3>Tabbed Content</h3>
 
 			<example action-title="Tabbed Modal" v-on:action="openExample('tabbedModal')" :code="examples.tabbedModal" language="xml">
@@ -270,6 +276,17 @@
 						- info<br />
 						- warning</br />
 						- error<br />
+					</td>
+				</tr>
+
+				<tr>
+					<td>width</td>
+					<td>String, Number</td>
+					<td>null</td>
+					<td>
+						Set the width of the modal. By default this is a "clever" width depending on
+						browser width.<br />
+						Numbers are interpreted as pixels, string are interpreted as-is.
 					</td>
 				</tr>
 
@@ -490,6 +507,10 @@
 							<a href="#">Action 1</a> &nbsp;
 							<a href="#">Action 2</a>
 						</template>
+					</sweet-modal>`,
+
+					ultraWide: `<sweet-modal title="Ultra Wide" width="100%">
+						This is a very wide modal.
 					</sweet-modal>`,
 
 					tabbedModal: `<sweet-modal>

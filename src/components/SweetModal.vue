@@ -9,7 +9,7 @@
 		See LICENSE-MIT.txt and LICENSE-GPL.txt
 	-->
 	<div :class="overlay_classes" v-show="is_open" v-on:click="_onOverlayClick">
-		<div :class="modal_classes">
+		<div :class="modal_classes" :style="modal_style">
 			<div class="sweet-box-actions">
 				<!-- Custom Actions -->
 				<slot name="box-action"></slot>
@@ -141,6 +141,12 @@
 				type: Boolean,
 				required: false,
 				default: false
+			},
+
+			width: {
+				type: [Number, String],
+				required: false,
+				default: null
 			}
 		},
 
@@ -217,6 +223,24 @@
 						bounce: this.is_bouncing,
 					}
 				]
+			},
+
+			modal_style() {
+				let width = this.width
+				let maxWidth = null
+
+				if (width !== null) {
+					if (Number(width) == width) {
+						width = width + 'px'
+					}
+
+					maxWidth = 'none'
+				}
+
+				return {
+					width,
+					maxWidth
+				}
 			}
 		},
 
@@ -506,8 +530,7 @@
 
 			> h2 {
 				@include ellipsis;
-
-				padding: 0;
+				@include mp0;
 
 				font-weight: 500;
 				font-size: 22px;

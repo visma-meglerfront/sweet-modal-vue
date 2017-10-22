@@ -30,7 +30,7 @@
 			bottom: 32px;
 		}
 
-		h2, p, > .content {
+		> h2, p, > .content {
 			@include mp0;
 			@include max-width;
 		}
