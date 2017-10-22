@@ -14,5 +14,5 @@ module.exports = merge.smart(require(path.resolve(__dirname, '../conf/webpack.js
 		contentBase: path.resolve(__dirname)
 	},
 
-	devtool: '#inline-eval-cheap-source-map'
+	//devtool: '#inline-eval-cheap-source-map'
 })

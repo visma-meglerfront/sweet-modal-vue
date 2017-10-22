@@ -56,6 +56,7 @@ module.exports = {
 								browsers: ['last 2 versions', '>= 3%', 'not ie <= 10'],
 								uglify: true
 							},
+							modules: false,
 							forceAllTransforms: node_env === 'production'
 						}]]
 					}
