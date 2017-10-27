@@ -1,8 +1,8 @@
 import { SweetModal, SweetModalTab } from './main.js'
 
-export default {
+module.exports = {
 	install(Vue, options) {
-		Vue.component('SweetModal', SweetModal)
-		Vue.component('SweetModalTab', SweetModalTab)
+		Vue.component('SweetModal', SweetModal);
+		Vue.component('SweetModalTab', SweetModalTab);
 	}
 }

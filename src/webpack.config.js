@@ -3,13 +3,13 @@ var merge = require('webpack-merge')
 
 
 var configBrowser = {
-	entry: path.resolve(__dirname, './main.js'),
+	entry: path.resolve(__dirname, './plugin.js'),
 
 	output: {
 		path: path.resolve(__dirname, '../dist'),
 		publicPath: path.resolve(__dirname, '../dist'),
 		filename: 'sweet-modal.min.js',
-		library: "SweetModalVue",
+		library: "SweetModal",
 		libraryTarget: 'window'
 	}
 };
