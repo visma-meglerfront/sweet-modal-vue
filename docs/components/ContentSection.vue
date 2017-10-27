@@ -30,7 +30,7 @@
 			bottom: 32px;
 		}
 
-		h2, p, > .content {
+		> h2, p, > .content {
 			@include mp0;
 			@include max-width;
 		}
@@ -123,6 +123,26 @@
 				tr:nth-child(2n-1) td {
 					background: color(light-background);
 				}
+			}
+
+			span.version {
+				display: inline-block;
+				background: darken(color(light-background), 4%);
+				color: desaturate(darken(color(light-background), 34%), 20%);
+
+				font-size: 11px;
+				font-weight: 600;
+
+				padding: 2px 4px;
+
+				vertical-align: middle;
+
+				margin: {
+					top: -2px;
+					right: 1px;
+				}
+
+				border-radius: 2px;
 			}
 		}
 	}

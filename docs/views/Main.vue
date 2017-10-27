@@ -104,6 +104,12 @@
 				</sweet-modal>
 			</example>
 
+			<example action-title="Ultra Wide" v-on:action="openExample('ultraWide')" :code="examples.ultraWide" language="xml">
+				<sweet-modal ref="ultraWide" title="Ultra Wide" width="100%">
+					This is a very wide modal.
+				</sweet-modal>
+			</example>
+
 			<h3>Tabbed Content</h3>
 
 			<example action-title="Tabbed Modal" v-on:action="openExample('tabbedModal')" :code="examples.tabbedModal" language="xml">
@@ -185,10 +191,26 @@
 			</example>
 		</content-section>
 
-		<content-section title="Install" class="install">
-			<p class="grey">
-				<b>Note:</b> This is a library solely for use with Vue.js.
-			</p>
+		<content-section title="Install Globally" class="install">
+			<p class="grey">If you want convenience.</p>
+
+			<ol>
+				<li>
+					Install sweet-modal-vue using npm: <code>npm install sweet-modal-vue</code>
+				</li>
+
+				<li>
+					Import sweet-modal-vue globally:<br />
+
+					<sweet-code light><code class="javascript">import SweetModal from 'sweet-modal-vue/plugin.js'<br />Vue.use(SweetModal)</code></sweet-code>
+				</li>
+			</ol>
+		</content-section>
+
+		<content-section class="or"><h3><span>OR</span></h3></content-section>
+
+		<content-section title="Install per Component" class="install">
+			<p class="grey">If you don't want to install SweetModal globally.</p>
 
 			<ol>
 				<li>
@@ -213,7 +235,11 @@
 	...
 }</code></sweet-code>
 				</li>
+			</ol>
+		</content-section>
 
+		<content-section title="Usage" class="install usage">
+			<ol>
 				<li>
 					Create your modal using one of the examples above.
 				</li>
@@ -257,7 +283,10 @@
 					<td>pulse-on-block</td>
 					<td>Boolean</td>
 					<td>true</td>
-					<td>If false, disabled pulse effect when user clicks outside a blocking modal.</td>
+					<td>
+						<span class="version">v1.1+</span>
+						If false, disabled pulse effect when user clicks outside a blocking modal.
+					</td>
 				</tr>
 
 				<tr>
@@ -278,6 +307,28 @@
 					<td>Boolean</td>
 					<td>false</td>
 					<td>If true, close button is hidden.</td>
+				</tr>
+
+				<tr>
+					<td>width</td>
+					<td>String, Number</td>
+					<td>null</td>
+					<td>
+						<span class="version">v2.0+</span>
+						Set the width of the modal. By default this is a "clever" width depending on
+						browser width.<br />
+						Numbers are interpreted as pixels, string are interpreted as-is.
+					</td>
+				</tr>
+
+				<tr>
+					<td>enable-mobile-fullscreen</td>
+					<td>Boolean</td>
+					<td>true</td>
+					<td>
+						<span class="version">v2.0+</span>
+						If true, modal becomes fullscreen on mobile devices for better legibility.
+					</td>
 				</tr>
 
 				<tr>
@@ -419,7 +470,6 @@
 </template>
 
 <script>
-	import { SweetModal, SweetModalTab } from '../../src/main'
 	import SweetButton from '../components/Button'
 	import SweetCode from '../components/Code'
 	import ProjectNavigation from '../components/ProjectNavigation'
@@ -430,8 +480,6 @@
 		name: 'MainView',
 
 		components: {
-			SweetModal,
-			SweetModalTab,
 			SweetButton,
 			SweetCode,
 			ProjectNavigation,
@@ -490,6 +538,10 @@
 							<a href="#">Action 1</a> &nbsp;
 							<a href="#">Action 2</a>
 						</template>
+					</sweet-modal>`,
+
+					ultraWide: `<sweet-modal title="Ultra Wide" width="100%">
+						This is a very wide modal.
 					</sweet-modal>`,
 
 					tabbedModal: `<sweet-modal>
@@ -702,6 +754,53 @@
 			> .content p:first-child {
 				margin-top: -24px;
 				margin-bottom: 56px;
+			}
+		}
+
+		&.or {
+			padding: 0;
+
+			margin: {
+				top: -24px;
+				bottom: -24px;
+			}
+
+			.content {
+
+				h3 {
+					@include mp0;
+
+					display: block;
+					text-align: center;
+
+					position: relative;
+
+					&::before {
+						content: '';
+						display: block;
+
+						background: color(border);
+
+						height: 1px;
+						width: 100%;
+
+						position: absolute;
+						top: calc(50% - 1px);
+						left: 0;
+						z-index: 2;
+					}
+
+					span {
+						position: relative;
+						z-index: 3;
+
+						display: inline-block;
+						background: #fff;
+						color: color(accent);
+
+						padding: 2px 8px;
+					}
+				}
 			}
 		}
 	}

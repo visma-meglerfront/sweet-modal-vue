@@ -9,7 +9,7 @@
 		See LICENSE-MIT.txt and LICENSE-GPL.txt
 	-->
 	<div :class="overlay_classes" v-show="is_open" v-on:click="_onOverlayClick">
-		<div :class="modal_classes">
+		<div :class="modal_classes" :style="modal_style">
 			<div class="sweet-box-actions">
 				<!-- Custom Actions -->
 				<slot name="box-action"></slot>
@@ -141,6 +141,18 @@
 				type: Boolean,
 				required: false,
 				default: false
+			},
+
+			enableMobileFullscreen: {
+				type: Boolean,
+				required: false,
+				default: true
+			},
+
+			width: {
+				type: [Number, String],
+				required: false,
+				default: null
 			}
 		},
 
@@ -212,11 +224,30 @@
 						'has-tabs': this.has_tabs,
 						'has-content': this.has_content,
 						'has-icon': this.icon,
+						'is-mobile-fullscreen': this.enableMobileFullscreen,
 						'is-visible': this.visible,
 						'is-alert': (this.icon && !this.has_tabs) || (!this.icon && !this.title && !this.$slots.title),
 						bounce: this.is_bouncing,
 					}
 				]
+			},
+
+			modal_style() {
+				let width = this.width
+				let maxWidth = null
+
+				if (width !== null) {
+					if (Number(width) == width) {
+						width = width + 'px'
+					}
+
+					maxWidth = 'none'
+				}
+
+				return {
+					width,
+					maxWidth
+				}
 			}
 		},
 
@@ -506,8 +537,7 @@
 
 			> h2 {
 				@include ellipsis;
-
-				padding: 0;
+				@include mp0;
 
 				font-weight: 500;
 				font-size: 22px;
@@ -820,30 +850,33 @@
 			}
 		}
 
-		@include media(mobile) {
+		&.is-mobile-fullscreen {
+			
+			@include media(mobile) {
 
-			& {
-				width: 100%;
-				height: 100vh;
+				& {
+					width: 100%;
+					height: 100vh;
 
-				left: 0;
-				top: 0;
+					left: 0;
+					top: 0;
 
-				transform: scale(0.9);
+					transform: scale(0.9);
 
-				&.is-visible {
-					transform: none;
+					&.is-visible {
+						transform: none;
+					}
 				}
-			}
 
-			.sweet-buttons {
-				@include border-box;
+				.sweet-buttons {
+					@include border-box;
 
-				position: absolute;
-				bottom: 0;
-				left: 0;
+					position: absolute;
+					bottom: 0;
+					left: 0;
 
-				width: 100%;
+					width: 100%;
+				}
 			}
 		}
 	}
