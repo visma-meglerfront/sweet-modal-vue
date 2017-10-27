@@ -1,7 +1,21 @@
 var path = require('path')
 var merge = require('webpack-merge')
 
-module.exports = merge.smart(require(path.resolve(__dirname, '../conf/webpack.js')), {
+
+var configBrowser = {
+	entry: path.resolve(__dirname, './main.js'),
+
+	output: {
+		path: path.resolve(__dirname, '../dist'),
+		publicPath: path.resolve(__dirname, '../dist'),
+		filename: 'sweet-modal.min.js',
+		library: "SweetModalVue",
+		libraryTarget: 'window'
+	}
+};
+
+
+var configAmd = {
 	entry: path.resolve(__dirname, './main.js'),
 
 	output: {
@@ -15,4 +29,9 @@ module.exports = merge.smart(require(path.resolve(__dirname, '../conf/webpack.js
 		umdNamedDefine: true
 		
 	}
-})
+};
+
+module.exports = [
+	merge.smart(require(path.resolve(__dirname, '../conf/webpack.js')), configAmd),
+	merge.smart(require(path.resolve(__dirname, '../conf/webpack.js')), configBrowser),
+];
