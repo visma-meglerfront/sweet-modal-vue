@@ -256,7 +256,8 @@
 			 * Open the dialog
 			 * Emits an event 'open'
 			 *
-			 * @param tabId string     Optional id or index of initial tab element.
+			 * @param tabId	string	Optional id or index of initial tab element.
+			 * @param timeout int	Optional timeout to close modal after a given time (milliseconds).
 			 */
 			open(tabId = null) {
 				if (tabId && this.has_tabs) {
@@ -280,6 +281,10 @@
 
 				setTimeout(() => this.visible = true, 30)
 				this.$emit('open')
+
+				if (timeout && timeout > 0) {
+					setTimeout(() => this.close(), timeout)
+				}
 			},
 
 			/**
