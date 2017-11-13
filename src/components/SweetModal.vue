@@ -259,7 +259,7 @@
 			 * @param tabId	string	Optional id or index of initial tab element.
 			 * @param timeout int	Optional timeout to close modal after a given time (milliseconds).
 			 */
-			open(tabId = null) {
+			open(tabId = null, timeout = 0) {
 				if (tabId && this.has_tabs) {
 					// Find tab with wanted id.
 					let openingTabs = this.tabs.filter((tab) => {return tab.id === tabId})
