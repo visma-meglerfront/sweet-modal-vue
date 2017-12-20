@@ -343,6 +343,8 @@
 			_changeTab(tab) {
 				this.tabs.map(t => t.active = t == tab)
 				this.currentTab = tab
+
+                		this.$emit('tab-change', tab)
 			},
 
 			_getClassesForTab(tab) {
