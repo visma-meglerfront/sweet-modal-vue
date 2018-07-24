@@ -202,7 +202,7 @@
 				<li>
 					Import sweet-modal-vue globally:<br />
 
-					<sweet-code light><code class="javascript">import SweetModal from 'sweet-modal-vue/plugin.js'<br />Vue.use(SweetModal)</code></sweet-code>
+					<sweet-code light><code class="javascript">import SweetModal from 'sweet-modal-vue/src/plugin.js'<br />Vue.use(SweetModal)</code></sweet-code>
 				</li>
 			</ol>
 		</content-section>
