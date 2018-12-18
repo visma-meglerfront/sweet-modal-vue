@@ -153,6 +153,12 @@
 				type: [Number, String],
 				required: false,
 				default: null
+			},
+
+			beforeClose:{
+				type: Function,
+				required: false,
+				default: null
 			}
 		},
 
@@ -287,11 +293,16 @@
 			 * Emits an event 'close'
 			 */
 			close() {
-				this.visible = false
-				this._unlockBody()
-
-				setTimeout(() => this.is_open = false, 300)
-				this.$emit('close')
+				let that = this;
+				if(this.beforeClose){
+					that.beforeClose().then((close) => {
+						console.debug("To close modal? ",close)
+						if(close) that._close()
+					})
+				}	
+				else{
+					that._close()
+				}
 			},
 
 			/**
@@ -306,6 +317,14 @@
 			/**********************
 			    INTERNAL METHODS
 			 **********************/
+
+			_close(){
+				this.visible = false
+				this._unlockBody()
+
+				setTimeout(() => this.is_open = false, 300)
+				this.$emit('close')
+			},
 
 			_lockBody() {
 				this.backups.body.height = document.body.style.height

@@ -110,6 +110,12 @@
 				</sweet-modal>
 			</example>
 
+			<example action-title="Modal with conditional close" v-on:action="openExample('conditionalCloseModal')" :code="examples.conditionalCloseModal" language="xml">
+				<sweet-modal ref="conditionalCloseModal" :before-close="beforeClose">
+					This is an alert with a conditional close
+				</sweet-modal>
+			</example>
+
 			<h3>Tabbed Content</h3>
 
 			<example action-title="Tabbed Modal" v-on:action="openExample('tabbedModal')" :code="examples.tabbedModal" language="xml">
@@ -344,6 +350,23 @@
 					<td>light</td>
 					<td>Theme of the modal; light or dark.</td>
 				</tr>
+								<tr>
+					<td>before-close</td>
+					<td>Promise</td>
+					<td>null</td>
+					<td>
+						close modal based on conditional.
+<pre>
+example:
+beforeClose() {
+return new Promise((resolve)=> {
+let result = confirm("Close the modal!");
+resolve(result); //resolve with true for close and false for keeping the modal open
+});
+</pre>
+
+					</td>
+				</tr>
 			</table>
 		</content-section>
 
@@ -544,6 +567,10 @@
 						This is a very wide modal.
 					</sweet-modal>`,
 
+					conditionalCloseModal: `<sweet-modal ref="conditionalCloseModal" :before-close="beforeClose">
+						This is an alert with a conditional close
+					</sweet-modal>`,
+
 					tabbedModal: `<sweet-modal>
 						<sweet-modal-tab title="Tab 1" id="tab1">Contents of Tab 1</sweet-modal-tab>
 						<sweet-modal-tab title="Tab 2" id="tab2">Contents of Tab 2</sweet-modal-tab>
@@ -607,6 +634,12 @@
 				} else {
 					throw new Error('Example Ref not defined: ' + ref)
 				}
+			},
+			beforeClose() {
+				return new Promise((resolve)=> {
+					let result = confirm("Close the modal!");
+    				resolve(result);
+				});
 			}
 		}
 	}

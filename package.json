@@ -23,6 +23,7 @@
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.8.1",
+    "webpack-sources": "1.0.1",
     "webpack-dev-server": "^2.9.3",
     "webpack-merge": "^4.1.0"
   },
