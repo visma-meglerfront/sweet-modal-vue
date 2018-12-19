@@ -296,7 +296,6 @@
 				let that = this;
 				if(this.beforeClose){
 					that.beforeClose().then((close) => {
-						console.debug("To close modal? ",close)
 						if(close) that._close()
 					})
 				}	
@@ -351,6 +350,10 @@
 
 			_onDocumentKeyup(event) {
 				if (event.keyCode == 27) {
+				/*because keyup is bound to document we need to check if this modal is currently open before propogating the event. 
+				  (because the event is fired once for each modal on the page) */
+				if(!this.is_open) return;
+				
 					if (this.blocking) {
 						if (this.pulseOnBlock) this.bounce()
 					} else {
