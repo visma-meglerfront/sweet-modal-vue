@@ -39,6 +39,6 @@ SweetModal should work in most major browsers:
 - _camelCase for private methods
 - snake_case computed properties
 - snake_case data
-- kebap-case attributes
+- kebab-case attributes
 - arrow functions if possible
 - be fully ES6 compliant!
