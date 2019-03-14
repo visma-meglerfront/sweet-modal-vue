@@ -153,6 +153,12 @@
 				type: [Number, String],
 				required: false,
 				default: null
+			},
+
+			beforeClose:{
+				type: Function,
+				required: false,
+				default: null
 			}
 		},
 
@@ -287,11 +293,15 @@
 			 * Emits an event 'close'
 			 */
 			close() {
-				this.visible = false
-				this._unlockBody()
-
-				setTimeout(() => this.is_open = false, 300)
-				this.$emit('close')
+				let that = this;
+				if(this.beforeClose){
+					that.beforeClose().then((close) => {
+						if(close) that._close()
+					})
+				}	
+				else{
+					that._close()
+				}
 			},
 
 			/**
@@ -306,6 +316,14 @@
 			/**********************
 			    INTERNAL METHODS
 			 **********************/
+
+			_close(){
+				this.visible = false
+				this._unlockBody()
+
+				setTimeout(() => this.is_open = false, 300)
+				this.$emit('close')
+			},
 
 			_lockBody() {
 				this.backups.body.height = document.body.style.height
@@ -332,6 +350,10 @@
 
 			_onDocumentKeyup(event) {
 				if (event.keyCode == 27) {
+				/*because keyup is bound to document we need to check if this modal is currently open before propogating the event. 
+				  (because the event is fired once for each modal on the page) */
+				if(!this.is_open) return;
+				
 					if (this.blocking) {
 						if (this.pulseOnBlock) this.bounce()
 					} else {
