@@ -1,3 +1,5 @@
+import "@babel/polyfill"
+
 import SweetModal from './components/SweetModal'
 import SweetModalTab from './components/SweetModalTab'
 

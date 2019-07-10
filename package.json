@@ -3,10 +3,11 @@
   "version": "2.0.0",
   "description": "SweetModal library for use with Vue.js",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "@babel/core": "^7.5.4",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel-loader": "^8.0.6",
     "babel-minify-webpack-plugin": "^0.2.0",
-    "babel-preset-env": "^1.6.1",
     "cross-env": "^1.0.6",
     "css-loader": "^0.14.5",
     "file-loader": "^0.8.4",
@@ -30,7 +31,7 @@
     "vue": "2.x"
   },
   "scripts": {
-    "dev": "webpack-dev-server --config docs/webpack.config.js --inline --hot",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config docs/webpack.config.js --inline --hot",
     "build": "npm run build-src && npm run build-docs",
     "build-src": "webpack --config src/webpack.config.js --progress --hide-modules",
     "build-docs": "webpack --config docs/webpack.config.js --progress --hide-modules"

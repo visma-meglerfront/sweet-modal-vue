@@ -51,13 +51,12 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: [['env', {
+						presets: [['@babel/preset-env', {
 							targets: {
-								browsers: ['last 2 versions', '>= 3%', 'not ie <= 10'],
-								uglify: true
+								browsers: ['last 2 versions', '>= 3%', 'not ie <= 10']
 							},
 							modules: false,
-							forceAllTransforms: node_env === 'production'
+							forceAllTransforms: (node_env === 'production')
 						}]]
 					}
 				}
