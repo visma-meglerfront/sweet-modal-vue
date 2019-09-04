@@ -1,6 +1,5 @@
 var path = require('path')
 var webpack = require('webpack')
-var MinifyPlugin = require('babel-minify-webpack-plugin')
 
 // Determine which env to use
 // by having it overriden at runtime using `cross-env NODE_ENV=...`
@@ -51,13 +50,12 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: [['env', {
+						presets: [['@babel/preset-env', {
 							targets: {
-								browsers: ['last 2 versions', '>= 3%', 'not ie <= 10'],
-								uglify: true
+								browsers: ['last 2 versions', '>= 3%', 'not ie <= 10']
 							},
 							modules: false,
-							forceAllTransforms: node_env === 'production'
+							forceAllTransforms: (node_env === 'production')
 						}]]
 					}
 				}
@@ -99,9 +97,4 @@ module.exports = {
 
 if (node_env == 'production') {
 	module.exports.devtool = '#source-map'
-	module.exports.plugins = module.exports.plugins.concat([
-		new MinifyPlugin({}, {
-			comments: false
-		})
-	])
 }
