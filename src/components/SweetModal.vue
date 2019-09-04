@@ -25,7 +25,7 @@
 				<!-- Tabs but no title -->
 				<template v-if="has_tabs && !has_title">
 					<ul class="sweet-modal-tabs">
-						<li v-for="tab in tabs" :class="_getClassesForTab(tab)">
+						<li :key="index" v-for="(tab, index) in tabs" :class="_getClassesForTab(tab)">
 							<a href="#" v-on:click.prevent="_changeTab(tab)">
 								<div class="sweet-modal-valign">
 									<span v-if="tab.icon" v-html="tab.icon" class="sweet-modal-tab-icon" />
@@ -45,7 +45,7 @@
 
 			<!-- Tabs: If title AND tabs are present -->
 			<ul class="sweet-modal-tabs" v-if="has_title && has_tabs">
-				<li v-for="tab in tabs" :class="_getClassesForTab(tab)">
+				<li :key="index" v-for="(tab, index) in tabs" :class="_getClassesForTab(tab)">
 					<a href="#" v-on:click.prevent="_changeTab(tab)">
 						<div class="sweet-modal-valign">
 							<span v-if="tab.icon" v-html="tab.icon" class="sweet-modal-tab-icon" />
