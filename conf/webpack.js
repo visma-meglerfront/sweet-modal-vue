@@ -1,6 +1,5 @@
 var path = require('path')
 var webpack = require('webpack')
-var MinifyPlugin = require('babel-minify-webpack-plugin')
 
 // Determine which env to use
 // by having it overriden at runtime using `cross-env NODE_ENV=...`
@@ -98,9 +97,4 @@ module.exports = {
 
 if (node_env == 'production') {
 	module.exports.devtool = '#source-map'
-	module.exports.plugins = module.exports.plugins.concat([
-		new MinifyPlugin({}, {
-			comments: false
-		})
-	])
 }
