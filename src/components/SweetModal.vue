@@ -125,6 +125,12 @@
 				default: false
 			},
 
+			bypassBlockingWithEsc: {
+				type: Boolean,
+				required: false,
+				default: false
+			},
+
 			pulseOnBlock: {
 				type: Boolean,
 				required: false,
@@ -210,7 +216,8 @@
 					'sweet-modal-clickable',
 					{
 						'is-visible': this.visible,
-						blocking: this.blocking
+						blocking: this.blocking,
+						'bypassBlockingWithEsc': this.bypassBlockingWithEsc
 					}
 				]
 			},
@@ -331,6 +338,8 @@
 			},
 
 			_onDocumentKeyup(event) {
+				if (this.bypassBlockingWithEsc) return
+				
 				if (event.keyCode == 27) {
 					if (this.blocking) {
 						if (this.pulseOnBlock) this.bounce()
