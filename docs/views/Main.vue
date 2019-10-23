@@ -83,6 +83,15 @@
 					<sweet-button slot="button" color="red" v-on:click="closeExample('darkWithBlockingError')">Press this Button</sweet-button>
 				</sweet-modal>
 			</example>
+			
+			<example action-title="Dark with Blocking Error and Esc Button Functionality" v-on:action="openExample('darkWithBlockingErrorEsc')" :code="examples.darkWithBlockingErrorEsc" language="xml">
+				<sweet-modal ref="darkWithBlockingErrorEsc" icon="error" hide-close-button blocking-esc overlay-theme="dark" modal-theme="dark">
+					This is an error…
+
+					<sweet-button slot="button" color="red" v-on:click="closeExample('darkWithBlockingErrorEsc')">Press this Button</sweet-button>
+				</sweet-modal>
+			</example>
+
 
 			<example action-title="Dark with HTML Content" v-on:action="openExample('darkWithHTMLContent')" :code="examples.darkWithHTMLContent" language="xml">
 				<sweet-modal ref="darkWithHTMLContent" modal-theme="dark" overlay-theme="dark">
@@ -522,6 +531,12 @@
 						This is an error…
 
 						<sweet-button slot="button" color="red" v-on:click="closeExample('darkWithBlockingError')">Press this Button</sweet-button>
+					</sweet-modal>`,
+
+					darkWithBlockingErrorEsc: `<sweet-modal icon="error" hide-close-button blocking-esc overlay-theme="dark" modal-theme="dark">
+						This is an error…
+
+						<sweet-button slot="button" color="red" v-on:click="closeExample('darkWithBlockingErrorEsc')">Press this Button</sweet-button>
 					</sweet-modal>`,
 
 					darkWithHTMLContent: `<sweet-modal modal-theme="dark" overlay-theme="dark">

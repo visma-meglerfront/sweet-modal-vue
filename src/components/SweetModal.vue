@@ -125,7 +125,7 @@
 				default: false
 			},
 
-			bypassBlockingWithEsc: {
+			blockingEsc: {
 				type: Boolean,
 				required: false,
 				default: false
@@ -217,7 +217,7 @@
 					{
 						'is-visible': this.visible,
 						blocking: this.blocking,
-						'bypassBlockingWithEsc': this.bypassBlockingWithEsc
+						'blocking-esc': this.blockingEsc
 					}
 				]
 			},
@@ -329,7 +329,7 @@
 
 			_onOverlayClick(event) {
 				if (!event.target.classList || event.target.classList.contains('sweet-modal-clickable')) {
-					if (this.blocking) {
+					if (this.blocking || this.blockingEsc) {
 						if (this.pulseOnBlock) this.bounce()
 					} else {
 						this.close()
@@ -338,8 +338,6 @@
 			},
 
 			_onDocumentKeyup(event) {
-				if (this.bypassBlockingWithEsc) return
-				
 				if (event.keyCode == 27) {
 					if (this.blocking) {
 						if (this.pulseOnBlock) this.bounce()
