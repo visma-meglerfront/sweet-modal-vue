@@ -167,6 +167,7 @@
 		},
 
 		beforeDestroy() {
+			this._unlockBody()
 			document.removeEventListener('keyup', this._onDocumentKeyup)
 		},
 
