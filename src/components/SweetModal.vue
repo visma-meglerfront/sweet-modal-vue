@@ -464,6 +464,9 @@
 
 		&.is-visible {
 			opacity: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 	}
 
@@ -474,10 +477,7 @@
 		box-shadow: 0px 8px 46px rgba(#000, 0.08),
 					0px 2px  6px rgba(#000, 0.03);
 
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		// transform: translate(-50%, -50%); // Done by the animation later
+		position: relative;
 
 		width: 80%;
 		max-width: 640px;
@@ -785,7 +785,7 @@
 		}
 
 		// Animation
-		transform: scale(0.9) translate(calc(-50% - 32px), -50%);
+		
 		opacity: 0;
 
 		transition: {
@@ -816,7 +816,6 @@
 		}
 
 		&.is-visible {
-			transform: translate(-50%, -50%);
 			opacity: 1;
 
 			.sweet-buttons,
