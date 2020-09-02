@@ -438,7 +438,7 @@
 		left: 0;
 
 		width: 100vw;
-		height: 100vh;
+		height: 100%;
 
 		z-index: 9001;
 
@@ -857,7 +857,7 @@
 
 				& {
 					width: 100%;
-					height: 100vh;
+					height: 100%;
 
 					left: 0;
 					top: 0;
