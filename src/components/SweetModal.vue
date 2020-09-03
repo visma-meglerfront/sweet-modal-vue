@@ -542,6 +542,7 @@
 
 				font-weight: 500;
 				font-size: 22px;
+				line-height: 64px;
 			}
 		}
 
