@@ -3,16 +3,14 @@
   "version": "2.0.0",
   "description": "SweetModal library for use with Vue.js",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-loader": "^9.0.0",
     "babel-preset-env": "^1.6.1",
     "cross-env": "^1.0.6",
     "css-loader": "^0.14.5",
     "file-loader": "^0.8.4",
     "imports-loader": "^0.6.5",
-    "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.6",
+    "sass": "~1.17.3",
+    "sass-loader": "^8.0.2",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.2",
     "svg-inline-loader": "^0.7.1",
@@ -22,22 +20,23 @@
     "vue-loader": "^13.0.5",
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.4.4",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.0.0",
     "webpack-merge": "^4.1.0"
   },
   "peerDependencies": {
     "vue": "2.x"
   },
   "scripts": {
-    "dev": "webpack-dev-server --config docs/webpack.config.js --inline --hot",
+    "dev": "webpack-dev-server --config docs/webpack.config.js",
     "build": "npm run build-src && npm run build-docs",
     "build-src": "webpack --config src/webpack.config.js --progress --hide-modules",
     "build-docs": "webpack --config docs/webpack.config.js --progress --hide-modules"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adeptoas/sweet-modal-vue.git"
+    "url": "git+https://github.com/Faisd405/sweet-modal-vue.git"
   },
   "keywords": [
     "sweetmodal",
@@ -50,7 +49,10 @@
   "author": "Adepto.as AS",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adeptoas/sweet-modal-vue/issues"
+    "url": "https://github.com/Faisd405/sweet-modal-vue/issues"
   },
-  "homepage": "https://github.com/adeptoas/sweet-modal-vue#readme"
+  "homepage": "https://github.com/Faisd405/sweet-modal-vue#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3"
+  }
 }
