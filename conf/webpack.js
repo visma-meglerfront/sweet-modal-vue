@@ -1,10 +1,10 @@
-var path = require('path')
-var webpack = require('webpack')
-var MinifyPlugin = require('babel-minify-webpack-plugin')
+const { resolve } = require('path')
+const webpack = require('webpack')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 // Determine which env to use
 // by having it overriden at runtime using `cross-env NODE_ENV=...`
-// Possible envs: dev, production
+// Possible envs: development, production
 var node_env
 
 if (process.env.NODE_ENV) {
@@ -16,9 +16,15 @@ if (process.env.NODE_ENV) {
 console.log('ENV', node_env)
 
 module.exports = {
+	mode: node_env,
+
 	resolve: {
 		alias: {
 			'vue$': 'vue/dist/vue.js',
+			'src': './src',
+			'components': './src/components',
+			'images': './src/images',
+			'styles': './src/styles'
 		},
 
 		extensions: ['.js', '.vue']
@@ -43,7 +49,11 @@ module.exports = {
 					'style-loader',
 					'css-loader',
 					'sass-loader'
-				]
+				],
+				/*include: [
+					resolve(__dirname, '../src'),
+					resolve(__dirname, '../node_modules'),
+				]*/
 			},
 			{
 				test: /\.js$/,
@@ -51,20 +61,24 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: [['env', {
+						presets: [['@babel/preset-env', {
 							targets: {
-								browsers: ['last 2 versions', '>= 3%', 'not ie <= 10'],
-								uglify: true
+								browsers: ['last 2 versions', '>= 3%', 'not ie <= 10']
 							},
-							modules: false,
-							forceAllTransforms: node_env === 'production'
+							modules: false
 						}]]
 					}
-				}
+				},
+				include: [
+					resolve(__dirname, '../node_modules')
+				]
 			},
 			{
 				test: /\.svg$/,
-				use: 'svg-inline-loader?classPrefix'
+				use: 'svg-inline-loader?classPrefix',
+				include: [
+					resolve(__dirname, '../src')
+				]
 			},
 			{
 				test: /\.(png|jpg|gif|svg)$/,
@@ -75,20 +89,19 @@ module.exports = {
 							name: '[name].[ext]?[hash]'
 						}
 					}
+				],
+				include: [
+					resolve(__dirname, '../src')
 				]
 			}
 		],
 	},
 
-	plugins: [
-		new webpack.DefinePlugin({
-			'process.env': {
-				NODE_ENV: '"' + node_env + '"'
-			}
-		})
-	],
-
 	devtool: '#cheap-source-map',
+
+	plugins: [
+		new VueLoaderPlugin()
+	],
 
 	devServer: {
 		historyApiFallback: true,
@@ -99,9 +112,4 @@ module.exports = {
 
 if (node_env == 'production') {
 	module.exports.devtool = '#source-map'
-	module.exports.plugins = module.exports.plugins.concat([
-		new MinifyPlugin({}, {
-			comments: false
-		})
-	])
 }
